@@ -22,6 +22,7 @@ namespace F26Week8DisconnectedModel
         public MainWindow()
         {
             InitializeComponent();
+            LoadCategoriesIntoCombobox();
         }
 
         private void btnLoadAllProducts_Click(object sender, RoutedEventArgs e)
@@ -87,6 +88,18 @@ namespace F26Week8DisconnectedModel
 
             grdProducts.ItemsSource = crud.GetAllProducts().DefaultView;
             MessageBox.Show("Product deleted");
+        }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            grdProducts.ItemsSource = crud.GetProductsByName(txtName.Text).DefaultView;
+        }
+
+        private void LoadCategoriesIntoCombobox()
+        {
+            cmbCategories.ItemsSource = crud.GetAllCategories().DefaultView;
+            cmbCategories.DisplayMemberPath = "CategoryName";
+            cmbCategories.SelectedValuePath = "CategoryID";
         }
     }
 }
