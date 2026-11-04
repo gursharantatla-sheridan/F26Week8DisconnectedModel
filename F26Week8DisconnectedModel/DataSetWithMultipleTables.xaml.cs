@@ -36,8 +36,11 @@ namespace F26Week8DisconnectedModel
             DataSet ds = new DataSet();
             adp.Fill(ds);
 
-            DataTable tblCats = ds.Tables[0];
-            DataTable tblProds = ds.Tables[1];
+            ds.Tables[0].TableName = "Categories";
+            ds.Tables[1].TableName = "Products";
+
+            DataTable tblCats = ds.Tables["Categories"]!;
+            DataTable tblProds = ds.Tables["Products"]!;
 
             grdCategories.ItemsSource = tblCats.DefaultView;
             grdProducts.ItemsSource = tblProds.DefaultView;

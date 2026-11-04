@@ -8,7 +8,7 @@
         Title="DataSetWithMultipleTables" Height="450" Width="800">
     <Canvas>
         <Button x:Name="btnLoad" Content="Load Data" HorizontalAlignment="Left" VerticalAlignment="Center" Height="53" Width="118" Canvas.Left="25" Canvas.Top="23" FontSize="14" FontWeight="Bold" Click="btnLoad_Click"/>
-        <DataGrid x:Name="grdCategories" d:ItemsSource="{d:SampleData ItemCount=5}" Canvas.Left="25" Canvas.Top="97" HorizontalAlignment="Center" Height="283" VerticalAlignment="Top"/>
-        <DataGrid x:Name="grdProducts" d:ItemsSource="{d:SampleData ItemCount=5}" Canvas.Left="415" Canvas.Top="97" HorizontalAlignment="Center" Height="283" VerticalAlignment="Top"/>
+        <DataGrid x:Name="grdCategories" d:ItemsSource="{d:SampleData ItemCount=5}" Canvas.Left="25" Canvas.Top="97" HorizontalAlignment="Left" Height="283" VerticalAlignment="Center" Width="360"/>
+        <DataGrid x:Name="grdProducts" d:ItemsSource="{d:SampleData ItemCount=5}" Canvas.Left="415" Canvas.Top="97" HorizontalAlignment="Left" Height="283" VerticalAlignment="Center" Width="356"/>
     </Canvas>
 </Window>
