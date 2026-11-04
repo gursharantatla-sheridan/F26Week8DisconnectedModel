@@ -35,5 +35,23 @@ namespace F26Week8DisconnectedModel
             DataSetWithMultipleTables win2 = new DataSetWithMultipleTables();
             win2.Show();
         }
+
+        private void btnFind_Click(object sender, RoutedEventArgs e)
+        {
+            int id = Convert.ToInt32(txtId.Text);
+            var row = crud.GetProductById(id);
+
+            if (row != null)
+            {
+                txtName.Text = row["ProductName"].ToString();
+                txtPrice.Text = row["UnitPrice"].ToString();
+                txtQuantity.Text = row["UnitsInStock"].ToString();
+            }
+            else
+            {
+                txtName.Text = txtPrice.Text = txtQuantity.Text = "";
+                MessageBox.Show("Invalid ID. Please try again.");
+            }
+        }
     }
 }
