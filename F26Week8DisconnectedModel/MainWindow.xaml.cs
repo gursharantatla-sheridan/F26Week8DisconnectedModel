@@ -65,5 +65,28 @@ namespace F26Week8DisconnectedModel
             grdProducts.ItemsSource = crud.GetAllProducts().DefaultView;
             MessageBox.Show("New product added");
         }
+
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            int id = int.Parse(txtId.Text);
+            string name = txtName.Text;
+            decimal price = decimal.Parse(txtPrice.Text);
+            int quantity = int.Parse(txtQuantity.Text);
+
+            crud.UpdateProduct(id, name, price, quantity);
+
+            grdProducts.ItemsSource = crud.GetAllProducts().DefaultView;
+            MessageBox.Show("Product updated");
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            int id = int.Parse(txtId.Text);
+            
+            crud.DeleteProduct(id);
+
+            grdProducts.ItemsSource = crud.GetAllProducts().DefaultView;
+            MessageBox.Show("Product deleted");
+        }
     }
 }
