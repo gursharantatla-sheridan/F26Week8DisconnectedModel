@@ -114,7 +114,7 @@ namespace F26Week8DisconnectedModel
 
         public DataTable GetProductsByCategory(int catId)
         {
-            string query = "select ProductID, ProductName, CategoryID from Products where CategoryID = @catId";
+            string query = "select p.ProductID, p.ProductName, c.CategoryName from Categories c inner join Products p on c.CategoryID = p.CategoryID where p.CategoryID = @catId";
 
             SqlCommand cmd = new SqlCommand(query, _conn);
             cmd.Parameters.AddWithValue("catId", catId);
